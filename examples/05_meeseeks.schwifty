@@ -1,0 +1,32 @@
+// functions are meeseeks. you summon one, it does its one job,
+// and then existenceIsPain sends the answer back and it's gone.
+
+meeseeks greet(name) {
+  existenceIsPain "I'm Mr. Meeseeks! Hi " + name + "!"
+}
+
+wubbaLubbaDubDub(greet("Jerry"))
+
+meeseeks takeTwoStrokesOff(score) {
+  existenceIsPain score - 2
+}
+
+pickle golf = 7
+wubbaLubbaDubDub("jerry's golf score:", takeTwoStrokesOff(golf))
+
+// recursion works too
+meeseeks factorial(n) {
+  ohJeez (n <= 1) {
+    existenceIsPain 1
+  }
+  existenceIsPain n * factorial(n - 1)
+}
+wubbaLubbaDubDub("10! =", factorial(10))
+
+// meeseeks can be stored in variables and passed around
+pickle double = meeseeks(x) { existenceIsPain x * 2 }
+
+meeseeks applyTwice(fn, value) {
+  existenceIsPain fn(fn(value))
+}
+wubbaLubbaDubDub("applyTwice(double, 5) =", applyTwice(double, 5))

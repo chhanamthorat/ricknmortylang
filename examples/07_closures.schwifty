@@ -1,0 +1,16 @@
+// a meeseeks factory. each counter remembers its own count.
+meeseeks makeCounter(label) {
+  pickle count = 0
+  existenceIsPain meeseeks() {
+    count = count + 1
+    existenceIsPain label + " #" + count
+  }
+}
+
+pickle mortys = makeCounter("Morty")
+pickle ricks = makeCounter("Rick")
+
+wubbaLubbaDubDub(mortys())
+wubbaLubbaDubDub(mortys())
+wubbaLubbaDubDub(ricks())
+wubbaLubbaDubDub(mortys())

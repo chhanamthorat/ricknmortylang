@@ -1,0 +1,18 @@
+pickle portalFluid = 15
+
+ohJeez (portalFluid > 50) {
+  wubbaLubbaDubDub("we're good, Morty, plenty of fluid")
+} orMaybeMorty (portalFluid > 10) {
+  wubbaLubbaDubDub("running low. one more adventure, tops")
+} otherDimension {
+  wubbaLubbaDubDub("we're stuck here. get used to it")
+}
+
+pickle dimension = "C-137"
+ohJeez (dimension == "C-137" && portalFluid != 0) {
+  wubbaLubbaDubDub("home sweet home")
+}
+
+ohJeez (!jerry) {
+  wubbaLubbaDubDub("not jerry is always schwifty")
+}

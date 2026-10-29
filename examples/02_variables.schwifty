@@ -1,0 +1,19 @@
+// pickle declares a variable. yes, because of that episode.
+pickle name = "Rick"
+pickle age = 70
+pickle isGenius = schwifty
+pickle jerryIsRight = jerry
+pickle plan = nobodyExists
+
+wubbaLubbaDubDub(name, "is", age, "years old")
+wubbaLubbaDubDub("genius?", isGenius)
+wubbaLubbaDubDub("is jerry right?", jerryIsRight)
+wubbaLubbaDubDub("the plan:", plan)
+
+// change a value without pickle
+age = age + 1
+wubbaLubbaDubDub("happy birthday, now", age)
+
+// *burp* can go anywhere. it does nothing. it's just vibes.
+pickle portalFluid = 100 *burp* - 25
+wubbaLubbaDubDub("portal fluid left:", portalFluid)

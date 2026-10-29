@@ -1,0 +1,14 @@
+// fizzbuzz, but schwifty.
+// multiples of 3 -> Wubba, multiples of 5 -> Lubba, both -> WubbaLubbaDubDub
+
+portal (pickle n = 1; n <= 20; n = n + 1) {
+  ohJeez (n % 15 == 0) {
+    wubbaLubbaDubDub("WubbaLubbaDubDub")
+  } orMaybeMorty (n % 3 == 0) {
+    wubbaLubbaDubDub("Wubba")
+  } orMaybeMorty (n % 5 == 0) {
+    wubbaLubbaDubDub("Lubba")
+  } otherDimension {
+    wubbaLubbaDubDub(n)
+  }
+}

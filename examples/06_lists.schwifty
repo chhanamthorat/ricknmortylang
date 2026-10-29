@@ -1,0 +1,16 @@
+pickle family = ["Rick", "Morty", "Summer", "Beth"]
+
+push(family, "Jerry")
+wubbaLubbaDubDub("the smith family:", family)
+wubbaLubbaDubDub("how many?", len(family))
+
+portal (pickle i = 0; i < len(family); i = i + 1) {
+  ohJeez (family[i] == "Jerry") {
+    wubbaLubbaDubDub(family[i], "... sure, he's here too")
+  } otherDimension {
+    wubbaLubbaDubDub(family[i], "is on the adventure")
+  }
+}
+
+pickle leftBehind = pop(family)
+wubbaLubbaDubDub("left behind:", leftBehind)

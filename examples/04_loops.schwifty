@@ -1,0 +1,17 @@
+// getSchwifty is a while loop
+pickle shots = 3
+getSchwifty (shots > 0) {
+  wubbaLubbaDubDub("portal gun charge:", shots)
+  shots = shots - 1
+}
+
+// portal is a for loop
+portal (pickle i = 1; i <= 10; i = i + 1) {
+  ohJeez (i % 2 == 0) {
+    riggity                 // continue: skip even dimensions
+  }
+  ohJeez (i > 7) {
+    wrecked                 // break: riggity riggity wrecked, son
+  }
+  wubbaLubbaDubDub("visiting dimension", i)
+}
