@@ -1,0 +1,27 @@
+{
+  "name": "ricknmortylang",
+  "version": "1.0.0",
+  "description": "A Rick and Morty themed toy programming language. pickle your variables, summon meeseeks, get schwifty.",
+  "main": "src/interpreter.js",
+  "bin": {
+    "ricknmorty": "./ricknmorty.js"
+  },
+  "scripts": {
+    "start": "node ricknmorty.js",
+    "test": "node --test",
+    "examples": "for f in examples/*.schwifty; do echo \"--- $f\"; node ricknmorty.js \"$f\"; done",
+    "build:web": "node scripts/build-web.js"
+  },
+  "keywords": [
+    "rick-and-morty",
+    "esolang",
+    "toy-language",
+    "interpreter",
+    "schwifty"
+  ],
+  "author": "chhanamthorat",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
