@@ -1,0 +1,37 @@
+// tryRick runs some risky code. if anything in there blows up
+// (a cronenberg, or a normal error like dividing by zero),
+// fixItRick catches it instead of the whole program dying.
+
+meeseeks usePortalGun(fluid) {
+  ohJeez (fluid < 10) {
+    cronenberg "not enough portal fluid"
+  }
+  existenceIsPain fluid - 10
+}
+
+pickle fluid = 25
+tryRick {
+  getSchwifty (schwifty) {
+    fluid = usePortalGun(fluid)
+    wubbaLubbaDubDub("jumped! fluid left:", fluid)
+  }
+} fixItRick (oops) {
+  wubbaLubbaDubDub("rick caught it:", oops)
+  wubbaLubbaDubDub("refilling the portal gun...")
+  fluid = 100
+}
+wubbaLubbaDubDub("fluid is back to", fluid)
+
+// normal errors get caught too
+tryRick {
+  pickle x = 10 / 0
+} fixItRick (oops) {
+  wubbaLubbaDubDub("also caught:", oops)
+}
+
+// you don't have to name the error if you don't care what it was
+tryRick {
+  wubbaLubbaDubDub(jerrysJob)
+} fixItRick {
+  wubbaLubbaDubDub("jerry doesn't have a job. moving on")
+}

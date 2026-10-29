@@ -1,0 +1,17 @@
+// cronenberg raises an error and stops the program.
+// use it when something is so wrong there's no point carrying on.
+
+meeseeks usePortalGun(fluid) {
+  ohJeez (fluid < 10) {
+    cronenberg "not enough portal fluid for another jump, we're stuck here"
+  }
+  existenceIsPain fluid - 10
+}
+
+pickle fluid = 25
+getSchwifty (schwifty) {
+  wubbaLubbaDubDub("jumping! fluid left:", fluid)
+  fluid = usePortalGun(fluid)
+}
+// this line never runs, the cronenberg above ends the program
+wubbaLubbaDubDub("made it home")
