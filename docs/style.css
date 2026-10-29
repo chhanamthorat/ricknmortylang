@@ -1,0 +1,317 @@
+:root {
+  --space: #241a44;        /* the void between dimensions */
+  --space-deep: #1a1233;
+  --panel: #31265c;
+  --panel-edge: #4a3c80;
+  --ink: #efeaff;
+  --ink-soft: #b9afd9;
+  --portal: #97d653;       /* portal green */
+  --portal-bright: #cdf58a;
+  --portal-dark: #3f7a1c;
+  --cronenberg: #ff8fa3;   /* errors. fleshy pink, you know why */
+
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --round: "Fredoka", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 0%, #2f2259 0, transparent 45%),
+    radial-gradient(circle at 90% 100%, #2b1f52 0, transparent 40%),
+    var(--space);
+  color: var(--ink);
+  font-family: var(--round);
+  font-size: 17px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a { color: var(--portal-bright); }
+a:hover { color: #fff; }
+
+:focus-visible {
+  outline: 3px solid var(--portal-bright);
+  outline-offset: 3px;
+}
+
+/* ---------- header ---------- */
+
+.top {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--portal-bright);
+  /* a bit of wobble, like it came through slightly wrong */
+  text-shadow: 3px 3px 0 var(--portal-dark);
+}
+
+.tagline {
+  margin: 12px 0 0;
+  max-width: 56ch;
+  color: var(--ink-soft);
+}
+
+.repo-link {
+  flex-shrink: 0;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 2px solid var(--panel-edge);
+  border-radius: 999px;
+}
+.repo-link:hover { border-color: var(--portal); }
+
+/* ---------- editor / portal / output ---------- */
+
+.lab {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 24px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 20px;
+}
+
+.pane {
+  background: var(--panel);
+  border: 2px solid var(--panel-edge);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+  overflow: hidden;
+}
+
+.pane-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--panel-edge);
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+select, .text-btn {
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--space-deep);
+  border: 2px solid var(--panel-edge);
+  border-radius: 8px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+select { max-width: 60%; }
+.text-btn:hover, select:hover { border-color: var(--portal); }
+
+.editor {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  background: var(--space-deep);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.gutter {
+  margin: 0;
+  padding: 14px 10px 14px 14px;
+  text-align: right;
+  color: #6f62a3;
+  user-select: none;
+  overflow: hidden;
+  min-width: 3.2em;
+  font: inherit;
+}
+
+textarea {
+  flex: 1;
+  margin: 0;
+  padding: 14px 14px 14px 6px;
+  border: 0;
+  resize: none;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  tab-size: 2;
+  white-space: pre;
+  overflow: auto;
+  caret-color: var(--portal-bright);
+}
+textarea:focus-visible { outline: none; }
+.editor:focus-within { box-shadow: inset 0 0 0 2px var(--portal); }
+
+.output {
+  flex: 1;
+  margin: 0;
+  padding: 14px;
+  background: var(--space-deep);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: auto;
+}
+.output .muted { color: #8a7fb5; }
+.output .err { color: var(--cronenberg); }
+
+/* ---------- the portal (the one fancy thing on the page) ---------- */
+
+.portal-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.portal {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  background: var(--portal-dark);
+  color: #10240a;
+  font: 600 1.25rem var(--round);
+  box-shadow: 0 0 0 4px var(--portal), 0 0 32px 6px rgba(151, 214, 83, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.portal-swirl {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--portal-bright) 0 22%, transparent 23%),
+    conic-gradient(from 0deg, var(--portal) 0 12%, var(--portal-bright) 12% 20%, var(--portal) 20% 37%,
+      #b6ea6c 37% 45%, var(--portal) 45% 62%, var(--portal-bright) 62% 70%, var(--portal) 70% 87%, #b6ea6c 87% 100%);
+  animation: swirl 9s linear infinite;
+}
+
+.portal-label {
+  position: relative;
+  letter-spacing: 0.02em;
+}
+
+.portal:hover {
+  box-shadow: 0 0 0 4px var(--portal-bright), 0 0 44px 10px rgba(151, 214, 83, 0.5);
+}
+.portal:hover .portal-swirl { animation-duration: 3s; }
+.portal:active { transform: scale(0.94); }
+
+/* while running: the portal opens up for a moment */
+.portal.jumping .portal-swirl { animation-duration: 0.6s; }
+.portal.jumping { transform: scale(1.08); }
+
+@keyframes swirl {
+  to { transform: rotate(360deg); }
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- cheat sheet ---------- */
+
+.cheats {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 24px 24px;
+}
+
+.cheats h2 {
+  margin: 0 0 14px;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.cheat-grid {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2px 28px;
+}
+
+.cheat-grid > div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--panel-edge);
+}
+
+.cheat-grid dt {
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  color: var(--portal-bright);
+  overflow-wrap: anywhere;
+}
+
+.cheat-grid dd {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+}
+
+.builtins {
+  margin: 20px 0 0;
+  color: var(--ink-soft);
+  max-width: 75ch;
+}
+.builtins code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  color: var(--ink);
+}
+
+.foot {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px 40px;
+  color: #8a7fb5;
+  font-size: 0.95rem;
+}
+
+/* ---------- smaller screens ---------- */
+
+@media (max-width: 860px) {
+  .top { flex-direction: column; align-items: flex-start; padding: 28px 16px 16px; }
+  .lab { grid-template-columns: 1fr; padding: 8px 16px 24px; gap: 16px; }
+  .pane { min-height: 0; }
+  .editor-pane { height: 340px; }
+  .output-pane { min-height: 200px; }
+  .portal-wrap { flex-direction: row; }
+  .portal { width: 84px; height: 84px; font-size: 1.1rem; }
+  .hint { display: none; }
+  .cheats, .foot { padding-left: 16px; padding-right: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-swirl, .portal:hover .portal-swirl, .portal.jumping .portal-swirl { animation: none; }
+  .portal, .portal.jumping { transition: none; transform: none; }
+}
